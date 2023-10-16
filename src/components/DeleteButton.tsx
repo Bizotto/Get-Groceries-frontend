@@ -11,7 +11,7 @@ export function DeleteButton({ onClick }: ButtonProps) {
       onClick={onClick}
       className=" hidden border rounded-md p-1 border-red-600 hover:bg-red-700 transition-colors group-hover:flex"
     >
-      <Trash color="red" width={15} height={15} />
+      <Trash className="text-red-600" width={15} height={15} />
     </button>
   );
 }

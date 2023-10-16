@@ -15,7 +15,7 @@ const config: Config = {
           200: '#015E1C',
           300: '#95D0A6',
         },
-        transparent: 'rgba(0, 100, 50, 0.30)',
+        greenTransparent: 'rgba(0, 100, 50, 0.30)',
       },
     },
   },

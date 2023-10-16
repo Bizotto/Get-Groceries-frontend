@@ -18,9 +18,10 @@ export function Products({ data }: Props) {
 
   return data.map(product => (
     <div
-      className={`border group border-secondary-200 flex items-center justify-between gap-2 px-4 py-4 my-4 rounded-xl hover:bg-secondary-300 hover:scale-105 transition ease-in-out duration-200 `}
+      className={`underline group flex items-center justify-between gap-2 px-4 py-4 my-4 rounded-xl hover:bg-secondary-300 transition ease-in-out duration-200 `}
       key={product.id}
     >
+      <input type="checkbox" />
       <div className="flex gap-3">
         <h2 className="font-bold">{product.name}:</h2>
         <p>{product.description}</p>

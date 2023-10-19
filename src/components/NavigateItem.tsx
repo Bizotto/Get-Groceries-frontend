@@ -11,8 +11,8 @@ interface RouteItemProps {
 export function RouteItem({ label, route, icon, className }: RouteItemProps) {
   return (
     <Link className={className} href={route}>
-      <p className="text-secondary-200">{icon}</p>
-      <p className="text-secondary-200">{label}</p>
+      <p className="text-secondary-300">{icon}</p>
+      <p className="text-secondary-300">{label}</p>
     </Link>
   );
 }

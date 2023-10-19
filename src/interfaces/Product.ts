@@ -5,3 +5,7 @@ export interface Product {
   description?: string;
   categoryId: string;
 }
+
+export interface CreateProductInput {
+  name: string;
+}

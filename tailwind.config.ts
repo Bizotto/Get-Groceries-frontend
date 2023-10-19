@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#C2E0D5',
+        primary: '#F8F0FF',
         secondary: {
-          100: '#C6F6D4',
-          200: '#015E1C',
-          300: '#95D0A6',
+          100: '#E3C2FF',
+          200: '#D9AAFF',
+          300: '#8C00FF',
         },
-        greenTransparent: 'rgba(0, 100, 50, 0.30)',
+        greenTransparent: 'rgba(50, 10, 50, 0.10)',
       },
     },
   },

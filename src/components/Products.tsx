@@ -1,32 +1,45 @@
 'use client';
 import { Product } from '@/interfaces/Product';
 import { api } from '@/lib';
+import { useQuery } from '@tanstack/react-query';
 import { DeleteButton } from './DeleteButton';
 
-interface Props {
-  data: Product[];
-}
+export function Products() {
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const data = await api.ProductsGateway.index();
+      return data as Product[];
+    },
+  });
 
-export function Products({ data }: Props) {
-  async function onDelete(id: string) {
-    try {
-      await api.ProductsGateway.delete(id);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error</div>;
 
-  return data.map(product => (
-    <div
-      className={`underline group flex items-center justify-between gap-2 px-4 py-4 my-4 rounded-xl hover:bg-secondary-300 transition ease-in-out duration-200 `}
-      key={product.id}
-    >
-      <input type="checkbox" />
-      <div className="flex gap-3">
-        <h2 className="font-bold">{product.name}:</h2>
-        <p>{product.description}</p>
-      </div>
-      <DeleteButton onClick={() => onDelete(product.id)} />
+  return data.length === 0 ? (
+    <div className="flex justify-center">
+      <p className="text-center text-secondary-300">
+        Your Items will apear Here!!
+      </p>
     </div>
-  ));
+  ) : (
+    <div className="w-full max-h-full border border-secondary-200 rounded-lg p-4">
+      {data?.map(product => (
+        <div
+          className="group flex items-center justify-between px-4 py-4 my-4 rounded-xl hover:bg-secondary-200 transition ease-in-out duration-200"
+          key={product.id}
+        >
+          <div className="flex gap-3">
+            <input type="checkbox" />
+            <div className="flex gap-3">
+              <h2 className="font-bold text-secondary-300">{product.name}</h2>
+            </div>
+          </div>
+          <div>
+            <DeleteButton id={product.id} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }

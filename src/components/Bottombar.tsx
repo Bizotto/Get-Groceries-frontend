@@ -21,8 +21,8 @@ export default function Bottombar() {
                 isActive && 'bg-greenTransparent'
               }`}
             >
-              <div className="text-secondary-200">{link.icon}</div>
-              <p className="text-subtle-medium text-secondary-200 max-sm:hidden">
+              <div className="text-secondary-300">{link.icon}</div>
+              <p className="text-subtle-medium text-secondary-300 max-sm:hidden">
                 {link.label}
               </p>
             </Link>

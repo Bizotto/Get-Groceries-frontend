@@ -1,4 +1,4 @@
-import { Product } from '@/interfaces/Product';
+import { CreateProductInput, Product } from '@/interfaces/Product';
 import { HttpRequests } from '../httpRequests';
 import { ProductsGatewayProtocol } from './productsGatewayProtocol';
 
@@ -21,7 +21,7 @@ export class ProductsGatewayHttp implements ProductsGatewayProtocol {
     return await this.http.get(`/products/${id}`);
   }
 
-  async store(product: Product): Promise<Product> {
+  async store(product: CreateProductInput): Promise<Product> {
     return await this.http.post('/products', product);
   }
 }

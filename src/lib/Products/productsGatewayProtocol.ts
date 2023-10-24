@@ -6,4 +6,5 @@ export interface ProductsGatewayProtocol {
   delete(id: string): Promise<void>;
   index(): Promise<Product[]>;
   indexById(id: string): Promise<Product>;
+  getProductsByCategoryId(id: string): Promise<Product[]>;
 }

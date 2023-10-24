@@ -24,4 +24,8 @@ export class ProductsGatewayHttp implements ProductsGatewayProtocol {
   async store(product: CreateProductInput): Promise<Product> {
     return await this.http.post('/products', product);
   }
+
+  async getProductsByCategoryId(id: string): Promise<Product[]> {
+    return await this.http.get(`products/category/${id}`);
+  }
 }

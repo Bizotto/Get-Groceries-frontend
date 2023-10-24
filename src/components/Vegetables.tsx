@@ -1,14 +1,17 @@
 'use client';
+import { DeleteButton } from '@/components/DeleteButton';
 import { Product } from '@/interfaces/Product';
 import { api } from '@/lib';
 import { useQuery } from '@tanstack/react-query';
-import { DeleteButton } from './DeleteButton';
 
-export function Products() {
+export default function Vegetables() {
   const { data, isError, isLoading } = useQuery({
-    queryKey: ['products'],
+    queryKey: ['products-vegetables'],
     queryFn: async () => {
-      const data = await api.ProductsGateway.index();
+      const data = await api.ProductsGateway.getProductsByCategoryId(
+        'cllstqpz20000sp3gbbld9n52'
+      );
+      console.log(data);
       return data as Product[];
     },
   });
@@ -16,7 +19,7 @@ export function Products() {
   if (isLoading) {
     return (
       <div className="w-full max-h-full border border-secondary-200 rounded-lg p-4 transition-opacity duration-300">
-        {[...Array(10)].map((_, index) => (
+        {[...Array(5)].map((_, index) => (
           <div
             className="animate-pulse group flex items-center justify-between px-4 py-4 my-4 rounded-xl"
             key={index}
@@ -37,19 +40,21 @@ export function Products() {
     </div>
   ) : (
     <div className="w-full max-h-full border border-secondary-200 rounded-lg p-4">
-      {data?.map(product => (
+      {data?.map(vegetables => (
         <div
           className="group flex items-center justify-between px-4 py-4 my-4 rounded-xl hover:bg-secondary-200 transition ease-in-out duration-200"
-          key={product.id}
+          key={vegetables.id}
         >
           <div className="flex gap-3">
             <input type="checkbox" />
             <div className="flex gap-3">
-              <h2 className="font-bold text-secondary-300">{product.name}</h2>
+              <h2 className="font-bold text-secondary-300">
+                {vegetables.name}
+              </h2>
             </div>
           </div>
           <div>
-            <DeleteButton id={product.id} />
+            <DeleteButton id={vegetables.id} />
           </div>
         </div>
       ))}

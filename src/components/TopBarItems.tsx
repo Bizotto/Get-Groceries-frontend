@@ -13,10 +13,9 @@ export function TopBarItems() {
     return (
       <RouteItem
         className={`flex items-center justify-center gap-1 rounded-lg p-2 hover:bg-greenTransparent max-md:hidden max-sm:hidden hover:border-greenTransparent hover:shadow-none transition-colors 
-          ${
-            isActive &&
-            'bg-greenTransparent border-greenTransparent shadow-none'
-          }`}
+        ${
+          isActive && 'bg-greenTransparent border-greenTransparent shadow-none'
+        }`}
         key={route.label}
         icon={route.icon}
         label={route.label}

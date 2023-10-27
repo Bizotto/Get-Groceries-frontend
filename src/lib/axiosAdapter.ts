@@ -9,9 +9,7 @@ export class AxiosAdapter implements HttpRequests {
     this.axios.interceptors.request.use(
       response => response,
       error => {
-        console.log(error);
         if (error instanceof AxiosError) {
-          console.log(error.response);
           throw new Error(error.response?.data.message);
         }
       }

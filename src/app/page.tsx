@@ -1,5 +1,5 @@
 import { Card } from '@/components/Card';
-import { Beef, Carrot, Fish, StickyNote } from 'lucide-react';
+import { ClipboardList, ScrollText } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -14,19 +14,17 @@ export default function Home() {
         </h2>
       </div>
 
-      <section className="flex gap-5 max-lg:flex-wrap max-lg:justify-center">
-        <Card title="Create a List" link="/addProduct">
-          <StickyNote className="text-secondary-300" width={60} height={60} />
-        </Card>
-        <Card title="Pescatarian List" link="/">
-          <Fish className="text-secondary-300" width={60} height={60} />
-        </Card>
-        <Card title="Vegetarian List" link="/vegetables">
-          <Carrot className="text-secondary-300" width={60} height={60} />
-        </Card>
-        <Card title="Carnivore List" link="/meat">
-          <Beef className="text-secondary-300" width={60} height={60} />
-        </Card>
+      <section className="flex gap-5 justify-center max-lg:flex-wrap max-lg:justify-center">
+        <Card
+          title="New instant List"
+          icon={<ScrollText width={60} height={60} />}
+          link="/addProduct"
+        />
+        <Card
+          title="New Later List"
+          icon={<ClipboardList width={60} height={60} />}
+          link="/" //TODO: Add link to later list
+        />
       </section>
     </>
   );

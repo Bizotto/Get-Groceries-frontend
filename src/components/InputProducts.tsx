@@ -1,12 +1,17 @@
 'use client';
 
+import { CreateProductInput } from '@/interfaces/Product';
 import { api } from '@/lib';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Check } from 'lucide-react';
 import { useState } from 'react';
 import CategorySelector from './CategorySelector';
 
-export function InputProducts() {
+interface CategoryProps {
+  categoryId?: CreateProductInput['categoryId'];
+}
+
+export function InputProducts({ categoryId }: CategoryProps) {
   const [input, setInput] = useState('');
   const queryClient = useQueryClient();
 
@@ -14,6 +19,7 @@ export function InputProducts() {
     mutationFn: async () => {
       const data = await api.ProductsGateway.store({
         name: input,
+        categoryId,
       });
       return data;
     },

@@ -6,3 +6,16 @@ main {
   -webkit-front-smoothing: antialiased;
   text-rendering: optimizeLegebility;
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e3c2ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d9aaff;
+  border-radius: 1.5rem;
+}

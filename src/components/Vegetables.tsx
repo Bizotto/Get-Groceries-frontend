@@ -6,12 +6,11 @@ import { useQuery } from '@tanstack/react-query';
 
 export default function Vegetables() {
   const { data, isError, isLoading } = useQuery({
-    queryKey: ['products-vegetables'],
+    queryKey: ['products'],
     queryFn: async () => {
       const data = await api.ProductsGateway.getProductsByCategoryId(
         'cllstqpz20000sp3gbbld9n52'
       );
-      console.log(data);
       return data as Product[];
     },
   });
@@ -19,7 +18,7 @@ export default function Vegetables() {
   if (isLoading) {
     return (
       <div className="w-full max-h-full border border-secondary-200 rounded-lg p-4 transition-opacity duration-300">
-        {[...Array(5)].map((_, index) => (
+        {[...Array(10)].map((_, index) => (
           <div
             className="animate-pulse group flex items-center justify-between px-4 py-4 my-4 rounded-xl"
             key={index}

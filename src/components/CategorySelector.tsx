@@ -16,13 +16,11 @@ export default function CategorySelector() {
   return (
     <div>
       <select
+        defaultValue="categories"
         className="flex items-center px-2 text-secondary-300 bg-secondary-100 h-12 rounded-lg"
         id="categories"
         name="categories"
       >
-        <option value="" disabled selected>
-          Categories
-        </option>
         {categories.data?.map(category => (
           <option key={category.id} value={category.id}>
             {category.name}

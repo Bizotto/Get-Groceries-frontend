@@ -1,7 +1,7 @@
 import { InputProducts } from '@/components/InputProducts';
-import Vegetables from '@/components/Vegetables';
+import ProductsView from '@/components/ProductsView';
 
-export default function v() {
+export default function Vegetables() {
   return (
     <section className="mt-20 space-y-4">
       <div className="flex justify-center">
@@ -10,7 +10,7 @@ export default function v() {
         </h1>
       </div>
       <InputProducts categoryId="cllstqpz20000sp3gbbld9n52" />
-      <Vegetables />
+      <ProductsView categoryId="cllstqpz20000sp3gbbld9n52" />
     </section>
   );
 }

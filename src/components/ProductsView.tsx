@@ -4,12 +4,16 @@ import { Product } from '@/interfaces/Product';
 import { api } from '@/lib';
 import { useQuery } from '@tanstack/react-query';
 
-export default function Vegetables() {
+interface ProductViewProps {
+  categoryId: string;
+}
+
+export default function ProductsView({ categoryId }: ProductViewProps) {
   const { data, isError, isLoading } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
       const data = await api.ProductsGateway.getProductsByCategoryId(
-        'cllstqpz20000sp3gbbld9n52'
+        categoryId
       );
       return data as Product[];
     },

@@ -12,7 +12,7 @@ export class AxiosAdapter implements HttpRequests {
         if (error instanceof AxiosError) {
           throw new Error(error.response?.data.message);
         }
-      }
+      },
     );
   }
 
@@ -28,7 +28,7 @@ export class AxiosAdapter implements HttpRequests {
   async post<T, R>(
     url: string,
     body: R,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<T> {
     const response = await this.axios(url, {
       method: 'POST',
@@ -42,7 +42,7 @@ export class AxiosAdapter implements HttpRequests {
   async patch<T, R>(
     url: string,
     body: R,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<T> {
     const response = await this.axios(url, {
       method: 'PATCH',
